@@ -62,7 +62,7 @@ Set device to magicbit in alias. Go to the dashboard tab and import dashboard.
 
 ## Provision your dashboard
 
-Download the dashboard file using this [**link**](/docs/samples/esp32/resources/esp32-dht22-temp-and-gpio-dashboard.json).
+Download the dashboard file using this [**link**](/docs/samples/magicbit/magicbit__temperature___humidity_demo_dashboard.json).
 Use import/export [**instructions**](/docs/user-guide/ui/dashboards/#dashboard-importexport) to import the dashboard to your ThingsBoard instance.
 
 ![image](/images/import dashboard_NEW.jpeg)
@@ -102,6 +102,10 @@ The Magicbit support must be added to Arduino IDE before any program can be buil
 1. Enter **Magicbit** in the search field. Click **Install**
 
    ![image](/images/ard_1NEW.jpeg)
+   
+1. Select **Magicbit** as the board when uploading.
+
+   ![image](/images/ard_2NEW.jpeg)
 
 ### Install Arduino ThingsBoard SDK
 
@@ -139,7 +143,7 @@ ESP32 Pico Kit does not require a sophisticated connection. Just plug micro-USB 
 
 ### Prepare and upload sketch
 
-Download and open **Magicbit_thingsboard.ino** sketch.
+Download and open **Magicbit_thingsboard.ino** sketch using this [**link**](/docs/samples/magicbit/Magicbit_thingsboard.ino).
 
 **Note** You need to edit following constants and variables in the sketch:
 
@@ -172,10 +176,10 @@ In case of live-demo server:
 
 See **[live-demo](/docs/user-guide/live-demo/)** page for more details how to get your account.
 
-Go to **"Devices"** section and locate **"Microbit"**, open device details and switch to **"Latest telemetry"** tab.
+Go to **"Devices"** section and locate **"Magicbit"**, open device details and switch to **"Latest telemetry"** tab.
 If all is configured correctly you should be able to see latest values of *"temperature"* and *"humidity"* in the graph.
 
-![image](images/DashboardAfter_NEW.jpeg)
+![image](/images/DashboardAfter_NEW.jpeg)
 
 After, open **"Dashboards"** section then locate and open **"magicbit_temperature_humidity_demo_dashboard"**.
 As a result, you will see a time-series chart displaying temperature and humidity level (similar to dashboard image in the introduction).
