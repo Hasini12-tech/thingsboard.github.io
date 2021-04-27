@@ -52,7 +52,7 @@ If you loaded the demo data during TB installation, the next credentials can be 
 
 After Signing in On the Left Side Bar you will see Devices. Click devices and add a new device.
 
-![image](/images/Add new device_NEW.jfif)
+![image](/images/Addnewdevice_NEW.jfif)
 
 Once device created, open its details and click "Manage credentials".
 
@@ -65,13 +65,13 @@ Set device to magicbit in alias. Go to the dashboard tab and import dashboard.
 Download the dashboard file using this [**link**](/docs/samples/magicbit/magicbit__temperature___humidity_demo_dashboard.json).
 Use import/export [**instructions**](/docs/user-guide/ui/dashboards/#dashboard-importexport) to import the dashboard to your ThingsBoard instance.
 
-![image](/images/import dashboard_NEW.jpeg)
+![image](/images/importdashboard_NEW.jpeg)
 
 ![image](/images/setofDashboards_NEW.jpeg)
 
-![image](/images/Edit aliases_NEW.jpeg)
+![image](/images/Editaliases_NEW.jpeg)
 
-![image](/images/Entity aliases_NEW.jpeg)
+![image](/images/Entityaliases_NEW.jpeg)
 
 ## Creating Magicbit firmware
 
@@ -137,9 +137,9 @@ DHT11 sensor, connected to the ESP32 requires a special driver. To install it, p
 
    ![image](/images/dht11.JPG)
 
-### Connect ESP32 Pico to PC
+### Connect **Magicbit** to PC
 
-ESP32 Pico Kit does not require a sophisticated connection. Just plug micro-USB cable into PC and Pico, this should be enough.
+Magicbit does not require a sophisticated connection. Just plug micro-USB cable into PC and Magicbit, this should be enough.
 
 ### Prepare and upload sketch
 
@@ -158,7 +158,7 @@ esp32-dht-gpio,esp32-dht-gpio.ino,c,resources/esp32-dht-gpio.ino,/docs/samples/e
 
 ## Troubleshooting
 
-In order to to perform troubleshooting, you must check ESP32 Pico logs. For that, simply open **Serial Monitor** in the Arduino IDE.
+In order to to perform troubleshooting, simply open **Serial Monitor** in the Arduino IDE.
 
 ## Data visualization
 
