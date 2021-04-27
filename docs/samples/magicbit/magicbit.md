@@ -1,7 +1,7 @@
 ---
 layout: docwithnav
-title: Magicbit (ESP32) GPIO control and DHT11 sensor monitor using ThingsBoard Arduino SDK
-description: ThingsBoard IoT Platform sample for Magicbit GPIO control and temperature/humidity monitor using ThingsBoard Arduino SDK
+title: Magicbit (ESP32) DHT11 sensor monitor using ThingsBoard Arduino SDK
+description: ThingsBoard IoT Platform sample for Magicbit temperature/humidity monitor using ThingsBoard Arduino SDK
 hidetoc: "true"
 ---
 
@@ -14,15 +14,11 @@ hidetoc: "true"
 
 [Magicbit](https://www.magicbit.cc) which is an innovation platform designed to learn and practice new technologies such as the Internet of Things(IoT). It’s a hardware, software and mobile app integrated environment.  Magicbit provides an easy to learn, feature rich and cost effective solution to all innovators, learners and students. Since the Magicbit hardware has ESP 32 based design, it supports integration to Cloud IoT platforms with a wide range of programming options for innovators.
 
-This sample application will allow you to control GPIO of your MAgicbit device using ThingsBoard web UI and display humidity/temperature data from DHT11 sensor module. We will observe GPIO control using LEDs connected to the pins. The purpose of this application is to demonstrate ThingsBoard [RPC capabilities](/docs/user-guide/rpc/) and ThingsBoard [Telemetry](/docs/user-guide/telemetry/).
-
-The application that is running on Magicbit is written using ThingsBoard Arduino SDK which is quite simple and easy to understand.
-
-Current GPIO state and GPIO control widget is visualized using built-in customizable dashboard.
+This sample application will allow you to display humidity/temperature data from DHT11 sensor using your magicbit device and ThingsBoard web UI.The application that is running on Magicbit is written using ThingsBoard Arduino SDK which is quite simple and easy to understand.
 
 Once you complete this sample/tutorial, you will see your sensor data on the following dashboard.
 
- ![image](/images/samples/magicbit/gpio-temperature/dashboard.png)
+ ![image](/images/DashboardTemp_NEW.jpeg)
 
 ## List of hardware
 
@@ -40,7 +36,7 @@ Once you complete this sample/tutorial, you will see your sensor data on the fol
 
 ### Connection diagram
 
-Connect DHT11 module to Magicbit as following image.
+Connect DHT11 module to pin 33 of the Magicbit as following image.
 
 ![image](/images/samples/magicbit/magicbit%20dht11.png)
 
@@ -54,20 +50,28 @@ If you loaded the demo data during TB installation, the next credentials can be 
  - login: tenant@thingsboard.org
  - password: tenant
 
-Go to "Devices" section. Click "+" button and create a device with the name "ESP32 Pico Device". Set "Device type" to "default".
+After Signing in On the Left Side Bar you will see Devices. Click devices and add a new device.
 
-![image](/images/samples/esp32/gpio-temperature/device.png)
+![image](/images/Add new device_NEW.jfif)
 
 Once device created, open its details and click "Manage credentials".
 
-Copy auto-generated access token from the "Access token" field. Please save this device token. It will be referred to later as **$ACCESS_TOKEN**.
+On the credentials tab tick Add credentials tab and choose Access Token from the drop down box. Either you can add your own Access Token or leave blank to auto generate token.
 
-![image](/images/samples/esp32/gpio-temperature/credentials.png)
+Set device to magicbit in alias. Go to the dashboard tab and import dashboard.
 
 ## Provision your dashboard
 
 Download the dashboard file using this [**link**](/docs/samples/esp32/resources/esp32-dht22-temp-and-gpio-dashboard.json).
 Use import/export [**instructions**](/docs/user-guide/ui/dashboards/#dashboard-importexport) to import the dashboard to your ThingsBoard instance.
+
+![image](/images/import dashboard_NEW.jpeg)
+
+![image](/images/setofDashboards_NEW.jpeg)
+
+![image](/images/Edit aliases_NEW.jpeg)
+
+![image](/images/Entity aliases_NEW.jpeg)
 
 ## Creating Magicbit firmware
 
@@ -91,13 +95,13 @@ The Magicbit support must be added to Arduino IDE before any program can be buil
 
    into **Additional Boards Manager URL** field, as shown below:
 
-   ![image](/images/samples/esp32/gpio-temperature/add-esp32-url.png)
+   ![image](/images/Preferences_NEW.jpeg)
 
 1. Select **Tools -> Board... -> Board manager** menu.
 
-1. Enter **ESP32** in the search field. Click **Install**
+1. Enter **Magicbit** in the search field. Click **Install**
 
-   ![image](/images/samples/esp32/gpio-temperature/install-esp32-arduino.png)
+   ![image](/images/ard_1NEW.jpeg)
 
 ### Install Arduino ThingsBoard SDK
 
@@ -117,17 +121,17 @@ To simplify application development, install the ThingsBoard Arduino SDK and its
 
 From now on, you can use ThingsBoard SDK right from Arduino IDE.
 
-### Install ESP32 DHT22 driver
+### Install ESP32 DHT11 driver
 
-DHT22 sensor, connected to the ESP32 requires a special driver. To install it, proceed as follows:
+DHT11 sensor, connected to the ESP32 requires a special driver. To install it, proceed as follows:
 
 1. Click on "Sketch" menu. Open "Include Library..." submenu. Select "Manage Libraries".
 
-1. Type "ESP DHT22" in the search field.
+1. Type "ESP DHT11" in the search field.
 
-1. Click install on "DHT22 Sensor Library for ESPx", as shown below:
+1. Click install on "DHT11 Sensor Library for ESPx", as shown below:
 
-   ![image](/images/samples/esp32/gpio-temperature/install-esp32-dht22-arduino.png)
+   ![image](/images/dht11.JPG)
 
 ### Connect ESP32 Pico to PC
 
@@ -135,7 +139,7 @@ ESP32 Pico Kit does not require a sophisticated connection. Just plug micro-USB 
 
 ### Prepare and upload sketch
 
-Download and open **esp32-dht-gpio.ino** sketch.
+Download and open **Magicbit_thingsboard.ino** sketch.
 
 **Note** You need to edit following constants and variables in the sketch:
 
@@ -152,7 +156,7 @@ esp32-dht-gpio,esp32-dht-gpio.ino,c,resources/esp32-dht-gpio.ino,/docs/samples/e
 
 In order to to perform troubleshooting, you must check ESP32 Pico logs. For that, simply open **Serial Monitor** in the Arduino IDE.
 
-## Data visualization and GPIO control
+## Data visualization
 
 Finally, open ThingsBoard Web UI. You can access this dashboard by logging in as a tenant administrator.
 
@@ -168,17 +172,13 @@ In case of live-demo server:
 
 See **[live-demo](/docs/user-guide/live-demo/)** page for more details how to get your account.
 
-Go to **"Devices"** section and locate **"ESP32 Pico Device"**, open device details and switch to **"Latest telemetry"** tab.
-If all is configured correctly you should be able to see latest values of *"temperature"* and *"humidity"* in the table.
+Go to **"Devices"** section and locate **"Microbit"**, open device details and switch to **"Latest telemetry"** tab.
+If all is configured correctly you should be able to see latest values of *"temperature"* and *"humidity"* in the graph.
 
-![image](/images/samples/esp32/gpio-temperature/telemetry.png)
+![image](images/DashboardAfter_NEW.jpeg)
 
-After, open **"Dashboards"** section then locate and open **"ESP32 Pico Dashboard"**.
+After, open **"Dashboards"** section then locate and open **"magicbit_temperature_humidity_demo_dashboard"**.
 As a result, you will see a time-series chart displaying temperature and humidity level (similar to dashboard image in the introduction).
-
-You should also observe a GPIO control for your device. It consists of two widgets: one is for controlling LED blink speed (in milliseconds) and second for turning individual LEDs on and off.
-
-You can switch status of GPIOs using control panel. As a result, you will see LEDs status change on the device. To control LED blink speed, simply turn a knob and observe a speed change.
 
 ## See also
 
